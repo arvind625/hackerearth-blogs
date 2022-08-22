@@ -1,7 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { useHistory, withRouter } from 'react-router-dom';
 import './App.css';
 import { Routes } from './Routing';
@@ -59,9 +59,14 @@ function App() {
             alt=""
           />
         </Navbar.Brand>
-        <Navbar.Brand className='Navbar' onClick={() => push('/')}>My Resume</Navbar.Brand>
+        <Navbar.Brand className='Navbar' onClick={() => push('/about')}>About Me</Navbar.Brand>
+
         <Navbar.Brand className='Navbar' onClick={() => push('/blogs')}>My Blogs</Navbar.Brand>
         <Navbar.Brand className='Navbar' onClick={() => push('/blog/new')}>New Blog</Navbar.Brand>
+        <Navbar.Brand className='Navbar' onClick={() => push('/projects')}>Projects</Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Nav.Link href={process.env.PUBLIC_URL + '/assets/resume/Arvind_Dhakar_Resume.pdf'} download>Download Resume</Nav.Link>
+        </Navbar.Collapse>
       </Navbar>
       <Routes blogs={blogs} setBlogs={setBlogs} />
     </div >
